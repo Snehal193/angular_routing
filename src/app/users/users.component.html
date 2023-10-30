@@ -1,0 +1,30 @@
+<p>users works!</p>
+
+
+<!-- <div>
+    <button (click)="onCategoriesClick()">
+        go to categories
+    </button>
+</div> -->
+
+<div>
+    <div> user with id {{user.id}}</div>
+    <div> user with name {{ user.name}}</div>
+</div>
+<!-- 
+<div>
+    <a [routerLink]="['/users',1, 'snehal']">get details of snehal</a>
+</div> -->
+
+<!--nested routes-->
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a [routerLink]="['/users', 1, 'snehal']" class="nav-link">get snehal details</a>
+    </li>
+    <li class="nav-item">
+        <a [routerLink]="['/users', 1, 'sam']" class="nav-link">get sam details</a>
+    </li>
+    <li  class="nav-item">
+        <a [routerLink]="['/users', 1, 'joe']" class="nav-link">get joe details</a>
+    </li>
+</ul>
