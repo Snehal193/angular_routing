@@ -1,26 +1,51 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <form  #f>
-                <div class="form-group">
-                    <label for="username">username</label>
-                        <input type="text" class="form-control" id="username" name="username" ngModel> 
-                </div>
-                <div class="form-group">
-                    <label for="email">email</label>
-                        <input type="text" class="form-control" id="email" name="email" ngModel> 
-                </div>
-                <div class="form-group">
-                    <label for="gender">gender</label>
-                        <select class="form-control" id="gender" name="gender" ngModel>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                </div>
-                <div class="mt-2">
-                    <button type="submit" class="btn btn-primary">submit</button>
-                </div>
-            </form>
+  <div class="row">
+    <div class="col-md-12">
+      <!--myform contains form object that is all the form details-->
+      <form (ngSubmit)="onFormSubmit()" #myform = "ngForm">  
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" ngModel required/>
+          <span class="help-text" *ngIf="!myform.controls.username.valid && myform.controls.username.touched ">enter a valid username</span>
         </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" name="email" ngModel required email #email="ngModel"/>
+          <span class="help-text" *ngIf="!email.valid && email.touched">enter valid email</span>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gender" ngModel>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="mt-2">
+          <button type="submit" (click)="onButtonclick()" class="btn btn-primary" [disabled]="!myform.valid">Submit</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+<!-- <div class="form-group">
+    
+    <form #templateForm="ngForm" >
+    <label for="power">Hero Power</label>
+    <select class="form-control" id="power" required>
+      <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+    </select>
+    <input type="text" class="form-control" id="name"
+       required
+       [(ngModel)]="model.name" name="name">
+TODO: remove this: {{model.name}}
+
+</form>
+  </div> -->

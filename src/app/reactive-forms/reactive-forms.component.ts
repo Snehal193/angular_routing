@@ -22,9 +22,9 @@ this.signUpForm = this.fb.group({   //formBuilder
   username: ['',  Validators.required] ,
   email:['', [Validators.required, Validators.email]],
   gender: [''],
-  aliases: this.fb.array([   //dynamic forms
-    this.fb.control('')
-  ])
+  // aliases: this.fb.array([   //dynamic forms
+  //   this.fb.control('')
+  // ])
 })
   
 
